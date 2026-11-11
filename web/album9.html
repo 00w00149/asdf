@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梦想家｜方大同</title>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
+body{
+    color:#222;
+    line-height:2.0;
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background-color:#2c2018;
+}
+.album-bg{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:contain;
+    z-index:-2;
+}
+.album-bg::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg, rgba(0,0,0,0.45), rgba(60,30,10,0.55));
+}
+.box{
+    background:rgba(255,255,255,0.45);
+    backdrop-filter: blur(4px);
+    padding:40px 60px;
+    margin:120px auto 40px;
+    width:92%;
+    max-width:1200px;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+.box h3{
+    color:#8c4820;
+    border-left:6px solid #d6a87e;
+    padding-left:16px;
+    font-size:24px;
+    margin-bottom:20px;
+}
+.box p{
+    text-indent:2em;
+    margin-bottom:18px;
+    font-size:17px;
+    color:#333;
+}
+.box p.noindent{
+    text-indent:0;
+}
+.back-btn{
+    display:block;
+    width:fit-content;
+    margin:0 auto 50px;
+    padding:12px 30px;
+    background:rgba(255,255,255,0.45);
+    backdrop-filter: blur(4px);
+    border-radius:30px;
+    text-decoration:none;
+    color:#8c4820;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 6px 16px rgba(0,0,0,0.12);
+}
+.back-btn:hover{
+    opacity:0.8;
+}
+@media(max-width:768px){
+    .box{padding:25px 20px;margin-top:90px;}
+}
+    </style>
+</head>
+<body>
+    <div class="album-bg" style="background-image:url(../image/album9.jpg);"></div>
+    <div class="box">
+        <h3>梦想家（2024）</h3>
+        <p>时隔多年的全新原创专辑，回归温柔治愈的底色，承载着长久的音乐沉淀，是送给听众的一份温暖新作。</p>
+        <p>曲目列表：</p>
+        <p class="noindent">1. XZMHXDXH</p>
+        <p class="noindent">2. 才二十三</p>
+        <p class="noindent">3. 江湖中人</p>
+        <p class="noindent">4. GF</p>
+        <p class="noindent">5. tango</p>
+        <p class="noindent">6. 谁知爱是什么</p>
+        <p class="noindent">7. 回留</p>
+        <p class="noindent">8. 我不是农人</p>
+        <p class="noindent">9. 那沙漠里的水</p>
+        <p class="noindent">10. 没啥好说</p>
+    </div>
+    <a href="albums.html" class="back-btn">← 返回专辑列表</a>
+</body>
+</html>
+

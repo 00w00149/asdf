@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方大同｜创作理念</title>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
+body{
+    color:#222;
+    line-height:2.0;
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background-color:#2c2018;
+}
+/* 背景轮播层 */
+.bg-slider{
+    position:fixed;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+.bg-item{
+    position:absolute;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:contain;
+    opacity:0;
+    transition:opacity 0.8s ease-in-out;
+}
+.bg-item.active{
+    opacity:1;
+}
+.bg-item::after{
+    content:"";
+    position:absolute;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg, rgba(0,0,0,0.35), rgba(60,30,10,0.45));
+}
+/* 顶部标题区 */
+.hero{
+    width:100%;
+    padding:100px 60px 40px;
+    color:#fff;
+    text-align:center;
+}
+h1{
+    font-size:44px;
+    letter-spacing:8px;
+    margin-bottom:10px;
+    text-shadow:0 4px 14px rgba(0,0,0,0.55);
+}
+.subtitle{
+    font-size:20px;
+    letter-spacing:2px;
+    opacity:0.95;
+    text-shadow:0 3px 10px rgba(0,0,0,0.45);
+}
+/* 右侧圆点 */
+.bg-dots{
+    position:fixed;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+.bg-dots .dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.45);
+    cursor:pointer;
+    transition:0.3s;
+}
+.bg-dots .dot.active{
+    background:#fff;
+    transform:scale(1.3);
+}
+/* 内容卡片 */
+.box{
+    background:rgba(255,255,255,0.88);
+    backdrop-filter: blur(8px);
+    padding:40px 60px;
+    margin:0 auto 40px;
+    width:92%;
+    max-width:1200px;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+}
+h3{
+    color:#8c4820;
+    border-left:6px solid #d6a87e;
+    padding-left:16px;
+    font-size:24px;
+    margin-bottom:20px;
+}
+p{
+    text-indent:2em;
+    margin-bottom:18px;
+    font-size:17px;
+    color:#333;
+}
+.idea-block{
+    background:#fff;
+    border-radius:14px;
+    padding:24px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.12);
+    margin:20px 0;
+}
+.idea-block h4{
+    color:#8c4820;
+    font-size:20px;
+    margin-bottom:12px;
+    border-bottom:2px solid #d6a87e;
+    padding-bottom:8px;
+}
+/* 返回首页按钮 */
+.back-home{
+    display:block;
+    width:fit-content;
+    margin:0 auto 50px;
+    padding:12px 30px;
+    background:rgba(255,255,255,0.88);
+    border-radius:30px;
+    text-decoration:none;
+    color:#8c4820;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+.back-home:hover{
+    transform:translateY(-4px);
+}
+@media(max-width:768px){
+    .hero{padding:80px 30px 30px;}
+    h1{font-size:32px;}
+    .subtitle{font-size:17px;}
+    .bg-dots{right:14px;}
+    .box{padding:25px 20px;}
+}
+    </style>
+</head>
+<body>
+    <!-- 背景轮播 -->
+    <div class="bg-slider" id="bgSlider">
+        <div class="bg-item active" style="background-image:url(../image/khalil_photo1.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo2.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo3.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo4.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo5.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo6.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo7.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo8.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo9.jpg);"></div>
+        <div class="bg-item" style="background-image:url(../image/khalil_photo10.jpg);"></div>
+    </div>
+    <!-- 右侧圆点 -->
+    <div class="bg-dots" id="bgDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
+        <span class="dot" data-index="6"></span>
+        <span class="dot" data-index="7"></span>
+        <span class="dot" data-index="8"></span>
+        <span class="dot" data-index="9"></span>
+    </div>
+
+    <section class="hero">
+        <h1>创作理念</h1>
+        <div class="subtitle">方大同的音乐态度与内心表达</div>
+    </section>
+
+    <div class="box">
+        <h3>音乐内核</h3>
+        <p>方大同一直坚持把经典Soul、R&B、Funk等西方黑人音乐，和中文语境融合，不盲目跟风流行套路，希望让华语听众听懂、爱上节奏布鲁斯。</p>
+
+        <div class="idea-block">
+            <h4>🎵 风格融合：东方文字 + 西方节奏</h4>
+            <p>方大同的创作根基是 60 至 70 年代的经典 Soul、R&B、Funk 音乐，但他拒绝简单照搬、复刻欧美歌曲。他认为，律动是灵魂，而中文歌词是作品的骨架。中文语言自带含蓄、内敛的美感，需要和节奏巧妙适配，不能为了迁就旋律破坏文字本身的语感。他一直在探索属于中文的 R&B 表达方式，让听众既能感受到灵魂乐松弛的律动，又能读懂华语文字独有的细腻情绪，这也是《爱爱爱》《Love Song》这一批经典作品的核心创作思路。</p>
+        </div>
+
+        <div class="idea-block">
+            <h4>📖 内容表达：真诚大于流量</h4>
+            <p>对他而言，写歌是自我表达，不是为了打造爆款。他不会刻意去写迎合市场、强抓耳的流水线情歌。创作题材十分多元：有青涩温柔的爱情，有日常细碎的生活感悟，也有对生命、哲学的思考，甚至会结合古典传统文化。《JTW 西游记》就是典型例子，他把西游记的神话故事、古典意象放进现代 R&B、摇滚的编曲框架中，用整张专辑的概念来讲完整故事，把专辑当成一件完整的艺术作品，而不是几首单曲的合集。</p>
+        </div>
+
+        <div class="idea-block">
+            <h4>🎹 编曲态度：重视乐器与人声</h4>
+            <p>他十分看重音乐的 “质感”，更偏爱实录乐器，鼓、贝斯、键盘、吉他之间的互动律动是他编曲的重点。他很少堆砌花哨的电子合成音效，不会依靠后期特效掩盖旋律和律动的空洞。在制作专辑时，他会反复打磨每一段乐器编排、人声强弱，追求乐器与人声自然融合的听觉感受，让歌曲拥有自然、温暖的现场感。</p>
+        </div>
+
+        <div class="idea-block">
+            <h4>✨ 长期坚持：慢产出，重品质</h4>
+            <p>他信奉 “慢工出细活”，不维持高频发歌的曝光节奏，愿意停下脚步沉淀、积累灵感。在他的认知里，音乐不是用来追逐流量、维持热度的工具，而是内心感受的载体。哪怕周期漫长，也要等到想法成熟、作品打磨到位才对外发布。这份坚持，也让他的每张专辑都拥有独立、统一的风格概念，在快速更迭的华语乐坛里，守住了独属于自己的音乐道路。</p>
+        </div>
+    </div>
+
+    <a href="../index.html" class="back-home">← 返回首页</a>
+
+<script>
+const items = document.querySelectorAll('.bg-item');
+const dots = document.querySelectorAll('#bgDots .dot');
+let index = 0;
+let timer;
+
+function go(i){
+    items[index].classList.remove('active');
+    dots[index].classList.remove('active');
+    index = i;
+    items[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+function next(){
+    go((index + 1) % items.length);
+}
+function startAuto(){
+    timer = setInterval(next, 2000);
+}
+function stopAuto(){
+    clearInterval(timer);
+}
+dots.forEach(dot=>{
+    dot.onclick = function(){
+        go(Number(this.dataset.index));
+        stopAuto();
+        startAuto();
+    };
+});
+document.getElementById('bgSlider').onmouseenter = stopAuto;
+document.getElementById('bgSlider').onmouseleave = startAuto;
+startAuto();
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方大同｜华语Soul音乐专题网站</title>
+    <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",sans-serif;}
+body{
+    color:#222;
+    line-height:2.0;
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background-color:#2c2018;
+}
+/* 背景轮播层 */
+.bg-slider{
+    position:fixed;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+.bg-item{
+    position:absolute;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size:contain;
+    opacity:0;
+    transition:opacity 0.8s ease-in-out;
+}
+.bg-item.active{
+    opacity:1;
+}
+.bg-item::after{
+    content:"";
+    position:absolute;
+    left:0;top:0;
+    width:100%;
+    height:100%;
+    background:
+        linear-gradient(135deg, rgba(0,0,0,0.35), rgba(60,30,10,0.45));
+}
+/* 顶部标题区 */
+.hero{
+    width:100%;
+    padding:140px 60px 80px;
+    color:#fff;
+    text-align:center;
+}
+h1{
+    font-size:54px;
+    letter-spacing:10px;
+    margin-bottom:12px;
+    text-shadow:0 4px 14px rgba(0,0,0,0.55);
+}
+.subtitle{
+    font-size:24px;
+    letter-spacing:3px;
+    opacity:0.95;
+    text-shadow:0 3px 10px rgba(0,0,0,0.45);
+}
+/* 背景轮播圆点 */
+.bg-dots{
+    position:fixed;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+.bg-dots .dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.45);
+    cursor:pointer;
+    transition:0.3s;
+}
+.bg-dots .dot.active{
+    background:#fff;
+    transform:scale(1.3);
+}
+/* 通用内容卡片 */
+.box{
+    background:rgba(255,255,255,0.88);
+    backdrop-filter: blur(8px);
+    padding:40px 60px;
+    margin:40px auto;
+    width:92%;
+    max-width:1200px;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.18);
+}
+h3{
+    color:#8c4820;
+    border-left:6px solid #d6a87e;
+    padding-left:16px;
+    font-size:24px;
+    margin-bottom:20px;
+}
+p{
+    text-indent:2em;
+    margin-bottom:18px;
+    font-size:17px;
+    color:#333;
+}
+/* 三栏特色卡片 */
+.feature-wrap{
+    width:92%;
+    max-width:1200px;
+    margin:0 auto 40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+.feature-item{
+    background:rgba(255,255,255,0.86);
+    backdrop-filter: blur(6px);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.16);
+    text-align:center;
+    transition:0.35s ease;
+}
+.feature-item:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.96);
+}
+.feature-item h4{
+    color:#8c4820;
+    font-size:20px;
+    margin-bottom:15px;
+}
+.feature-item p{
+    text-indent:0;
+    font-size:16px;
+    color:#444;
+}
+/* 四栏导航卡片 */
+.nav-section{
+    width:92%;
+    max-width:1200px;
+    margin:0 auto 40px;
+}
+.grid-nav{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+.nav-card{
+    background:rgba(255,255,255,0.88);
+    backdrop-filter: blur(6px);
+    padding:35px 20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 24px rgba(0,0,0,0.16);
+    transition:0.35s ease;
+}
+.nav-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 14px 30px rgba(140,72,32,0.22);
+    background:rgba(255,255,255,0.98);
+}
+.nav-card a{
+    display:block;
+    text-decoration:none;
+    color:#8c4820;
+    font-size:20px;
+    font-weight:bold;
+}
+.nav-card .tip{
+    margin-top:12px;
+    font-size:15px;
+    color:#555;
+    font-weight:normal;
+}
+@media(max-width:768px){
+    .grid-nav{grid-template-columns:repeat(2,1fr);}
+    .feature-wrap{grid-template-columns:1fr;}
+    .hero{padding:100px 30px 70px;}
+    h1{font-size:36px;}
+    .subtitle{font-size:18px;}
+    .bg-dots{right:14px;}
+}
+    </style>
+</head>
+<body>
+
+    <!-- 整页背景轮播 -->
+    <div class="bg-slider" id="bgSlider">
+        <div class="bg-item active" style="background-image:url(image/khalil_photo1.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo2.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo3.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo4.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo5.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo6.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo7.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo8.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo9.jpg);"></div>
+        <div class="bg-item" style="background-image:url(image/khalil_photo10.jpg);"></div>
+    </div>
+
+    <!-- 右侧背景轮播圆点 -->
+    <div class="bg-dots" id="bgDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+        <span class="dot" data-index="4"></span>
+        <span class="dot" data-index="5"></span>
+        <span class="dot" data-index="6"></span>
+        <span class="dot" data-index="7"></span>
+        <span class="dot" data-index="8"></span>
+        <span class="dot" data-index="9"></span>
+    </div>
+
+    <!-- 顶部标题 -->
+    <section class="hero">
+        <h1>方大同 Khalil Fong</h1>
+        <div class="subtitle">华语灵魂乐、R&B、爵士、放克融合音乐专题网站</div>
+    </section>
+
+    <!-- 导航四卡片 -->
+    <div class="nav-section">
+        <div class="grid-nav">
+            <div class="nav-card">
+                <a href="web/intro.html">人物简介</a>
+                <div class="tip">成长经历、音乐之路</div>
+            </div>
+            <div class="nav-card">
+                <a href="web/albums.html">专辑全览</a>
+                <div class="tip">9张经典专辑赏析</div>
+            </div>
+            <div class="nav-card">
+                <a href="web/songs.html">作品奖项</a>
+                <div class="tip">金曲盘点、荣誉记录</div>
+            </div>
+            <div class="nav-card">
+                <a href="web/story.html">创作理念</a>
+                <div class="tip">音乐态度与思考</div>
+            </div>
+			
+        </div>
+    </div>
+	
+	<!-- 合并后的简介卡片 -->
+    <div class="box">
+        <h3>网站简介｜音乐魅力</h3>
+        <p>方大同，是华语乐坛极少数深耕Soul灵魂乐、爵士、蓝调、Funk放克的全能创作音乐人。不同于主流流水线情歌，他的音乐根植于复古黑人音乐体系，融合东方诗意，旋律松弛、编曲精致，自成一套辨识度极高的音乐风格，被许多乐迷与乐评人称为“华语Soul第一人”。</p>
+        <p>在华语流行大多追求抓耳洗脑旋律的时候，方大同把重心放在律动、和声与编曲上。他的作品没有刻意炫技，却藏着细腻精巧的和弦编排，温柔的唱腔搭配慵懒的节奏，耐听度极高。从早期纯粹的复古Soul，到布鲁斯、摇滚，再到国风、世界音乐，他始终不迎合流量，坚持自己的审美创作。</p>
+    </div>
+
+    <!-- 音乐特色三卡片 -->
+    <div class="feature-wrap">
+        <div class="box">
+            <h4>🎵 复古灵魂乐 Soul</h4>
+            <p>承袭60、70年代经典黑人灵魂乐，柔和绵长的律动，温暖治愈，代表作《爱爱爱》《小小虫》。</p>
+        </div>
+        <div class="box">
+            <h4>🎸 放克 & 布鲁斯 Funk & Blues</h4>
+            <p>轻快跳跃的贝斯节奏，慵懒随性，充满松弛感，集中在《未来》《15》两张专辑。</p>
+        </div>
+        <div class="box">
+            <h4>📜 国风概念创作</h4>
+            <p>将东方故事、古典意境和现代R&B结合，《JTW西游记》是这类创作的巅峰之作。</p>
+        </div>
+    </div>
+
+    
+
+<script>
+const items = document.querySelectorAll('.bg-item');
+const dots = document.querySelectorAll('#bgDots .dot');
+let index = 0;
+let timer;
+
+function go(i){
+    items[index].classList.remove('active');
+    dots[index].classList.remove('active');
+    index = i;
+    items[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+function next(){
+    go((index + 1) % items.length);
+}
+
+function startAuto(){
+    timer = setInterval(next, 2000);
+}
+
+function stopAuto(){
+    clearInterval(timer);
+}
+
+dots.forEach(dot=>{
+    dot.onclick = function(){
+        go(Number(this.dataset.index));
+        stopAuto();
+        startAuto();
+    };
+});
+
+document.getElementById('bgSlider').onmouseenter = stopAuto;
+document.getElementById('bgSlider').onmouseleave = startAuto;
+
+startAuto();
+</script>
+
+</body>
+</html>
